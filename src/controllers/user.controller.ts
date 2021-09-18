@@ -5,9 +5,9 @@ import DB from "../models";
 import bcrypt  from "bcryptjs";
 import config from "../config"
 import jsonwebtoken from "jsonwebtoken"
-const { ObjectId } = DB.mongoose.mongoose.Types
+const { ObjectId } = DB.mongoose.Types
 const { User } = DB.User
-const privateKEY = fs.readFileSync('../config/private.key', 'utf8');
+const privateKEY = fs.readFileSync(__dirname+"/../config/public.key", 'utf8');
 
 const signup = (req, res) => {
     const user = new User({

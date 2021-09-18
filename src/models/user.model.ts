@@ -70,7 +70,7 @@ UserSchema.pre("save", function (next) {
   }
 })
 
-UserSchema.virtual('proPic').get(function (value) {
+UserSchema.virtual('image').get(function (value) {
   if (this.proPic != "" && typeof this.proPic !== undefined) {
       return UPLOAD_FOLDER_URL + "/" + this._id + "/" + this.proPic;
   } else {
