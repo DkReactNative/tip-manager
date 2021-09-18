@@ -4,6 +4,7 @@ import Validator from 'node-input-validator';
 import DB from "../models";
 import bcrypt  from "bcryptjs";
 import config from "../config"
+import mailSend from "../helpers/mailer"
 import jsonwebtoken from "jsonwebtoken"
 const { ObjectId } = DB.mongoose.Types
 const  User  = DB.User
@@ -23,6 +24,7 @@ const signup = (req, res) => {
         return res.status(500).send({ message: err.message || "Something went wrong" });
       }
       const { _id, last_login_time } = user;
+      mailSend({name:user.name,email:user.email,subject:"Welcome"})
       const token = jsonwebtoken.sign({ _id, last_login_time }, privateKEY, config.signOptions);
       return res.status(201).send({ name:user.name, token:token });
   
@@ -30,9 +32,19 @@ const signup = (req, res) => {
   };
   
 const signin = (req, res) => {
-    User.findOne({
+    User.findOneAndUpdate(
+     {
       email: req.body.email
-    },(err, user) => {
+      },
+      {
+      $set:{
+             last_login_time:new Date()
+           }
+    },
+    {
+    new:true
+   },(err, user:any ) => {
+       console.log(user)
         if (err) {
           res.status(500).send({ message: err });
           return;

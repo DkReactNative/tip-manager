@@ -39,6 +39,7 @@
     "@types/mongoose": "^5.11.97",
     "@types/morgan": "^1.9.3",
     "@types/multer": "^1.4.7",
+    "@types/nodemailer": "^6.4.4",
     "@types/validator": "^13.6.3",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
@@ -54,6 +55,7 @@
     "mongoose": "^6.0.6",
     "morgan": "^1.10.0",
     "multer": "^1.4.3",
-    "node-input-validator": "^4.4.1"
+    "node-input-validator": "^4.4.1",
+    "nodemailer": "^6.6.3"
   }
 }

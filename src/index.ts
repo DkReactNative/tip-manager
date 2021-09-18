@@ -28,6 +28,8 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.set("view engine", "ejs");
+
 // parse requests of content-type - application/json
 app.use(express.json());
 
