@@ -3,13 +3,28 @@ import cors from "cors";
 import dotenv from 'dotenv';
 import UserRoute from "./routes/user.route";
 import TipRoute from "./routes/tip.route";
+import DB from "./models"
 
 dotenv.config()
 const app = express();
 
+DB.mongoose
+    .connect(DB.url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+    .then(() => {
+        console.log("Successfully connect to MongoDB.");
+    })
+    .catch(err => {
+        console.error("Connection error", err);
+        process.exit();
+});
+
 var corsOptions = {
   origin: "http://localhost:8081"
 };
+
 
 app.use(cors(corsOptions));
 

@@ -8,7 +8,7 @@ interface User {
   name: string;
   email: string;
   password:string;
-  proPic?: string;
+  proPic: string;
   last_login_time: Date,   
   deletedAt: Date | null
 }
