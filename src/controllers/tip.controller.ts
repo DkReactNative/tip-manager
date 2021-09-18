@@ -2,7 +2,7 @@
 import DB from "../models";
 import Dayjs  from "dayjs"
 const { ObjectId } = DB.mongoose.Types
-const { Tip } = DB.User
+const  Tip  = DB.Tip
 
 const calculate = (req, res) => {
     const tip = new Tip({

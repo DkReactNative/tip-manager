@@ -10,8 +10,8 @@ const app = express();
 
 DB.mongoose
     .connect(DB.url, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
+      autoIndex:true,
+      autoCreate: true
     })
     .then(() => {
         console.log("Successfully connect to MongoDB.");
