@@ -1,6 +1,9 @@
 import express from "express";
 import cors from "cors";
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
+import UserRoute from "./routes/user.route";
+import TipRoute from "./routes/tip.route";
+
 dotenv.config()
 const app = express();
 
@@ -16,10 +19,15 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static('public'));
+
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to tip manager application." });
 });
+
+app.use('/user',UserRoute);
+app.use('/user',TipRoute);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

@@ -39,5 +39,13 @@ const TipSchema = new Schema<Tip>({
     toObject: { virtuals: true,getters:true }, 
     toJSON: { virtuals: true,getters:true } 
   })
+
+  TipSchema.pre("save", function (next) {
+    const tip = this
+    if (this.isModified("totalAmount") || this.isNew) {
+        tip.tipAmount = tip.totalAmount*100/tip.tipPercentage
+        next()
+  }
+  })
 const TipModel = model<Tip>('Tip', TipSchema);
 export default TipModel

@@ -10,7 +10,6 @@ interface User {
   password:string;
   proPic?: string;
   last_login_time: Date,   
-  is_active: number,
   deletedAt: Date | null
 }
 
@@ -40,7 +39,6 @@ const UserSchema = new Schema<User>({
             ],       
   },
   proPic: String,
-  is_active: { type: Number, enum: [1, 0], default: 1 },  
   last_login_time: { type: Date }, 
   deletedAt: { type: Date ,default:null}, 
 },{ 

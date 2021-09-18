@@ -8,5 +8,4 @@ db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.User = UserModel
 db.Tip = TipModel
-
-module.exports = db;
+export default db;
