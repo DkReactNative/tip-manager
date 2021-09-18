@@ -2,8 +2,9 @@
   "name": "tipmanager",
   "version": "1.0.0",
   "description": "App is called “tip manger” where user will be able to calculate the tips ",
-  "main": "index.js",
+  "main": "dist/app.js",
   "scripts": {
+    "start": "tsc && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/DkReactNative/tip-manager/issues"
   },
-  "homepage": "https://github.com/DkReactNative/tip-manager#readme"
+  "homepage": "https://github.com/DkReactNative/tip-manager#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "tslint": "^5.20.1",
+    "typescript": "^3.9.10"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
