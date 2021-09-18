@@ -43,7 +43,7 @@ const TipSchema = new Schema<Tip>({
   TipSchema.pre("save", function (next) {
     const tip = this
     if (this.isModified("totalAmount") || this.isNew) {
-        tip.tipAmount = tip.totalAmount*100/tip.tipPercentage
+        tip.tipAmount = Math.round(tip.totalAmount*100/tip.tipPercentage)
         next()
   }
   })

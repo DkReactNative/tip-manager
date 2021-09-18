@@ -7,13 +7,15 @@ import config from "../config"
 import jsonwebtoken from "jsonwebtoken"
 const { ObjectId } = DB.mongoose.Types
 const  User  = DB.User
-const privateKEY = fs.readFileSync(__dirname+"/../config/public.key", 'utf8');
+const privateKEY = fs.readFileSync(__dirname+"/../config/private.key", 'utf8');
 
 const signup = (req, res) => {
+    console.log("here",req.body)
     const user = new User({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
+      proPic:req.file && req.file.filename || ""
     });
   
     user.save((err, user) => {

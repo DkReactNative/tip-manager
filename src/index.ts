@@ -41,8 +41,8 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to tip manager application." });
 });
 
-app.use('/user',UserRoute);
-app.use('/user',TipRoute);
+app.use('/user/',UserRoute);
+app.use('/tip/',TipRoute);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

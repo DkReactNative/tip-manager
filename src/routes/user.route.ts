@@ -7,7 +7,7 @@ import ValidImage from "../helpers/validImage"
 
 var userStorage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "public/user/");
+        cb(null, "src/public/user/");
     },
     filename: function (req, file, cb) {
         crypto.pseudoRandomBytes(16, function (err, raw) {
@@ -22,7 +22,9 @@ var upload = multer({ storage: userStorage, fileFilter: ValidImage, limits: { fi
 const Router = express.Router();
 Router.post("/", [
     function (req, res, next) {
+        console.log("here out",req.body)
         upload(req, res, function (err) {
+            console.log(err)
             if (err instanceof multer.MulterError) {
                 let response = { "message": err.message };
                 return res.json(response);
