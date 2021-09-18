@@ -1,0 +1,23 @@
+{
+  "name": "tipmanager",
+  "version": "1.0.0",
+  "description": "App is called “tip manger” where user will be able to calculate the tips ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DkReactNative/tip-manager.git"
+  },
+  "keywords": [
+    "tip-manager",
+    "+git"
+  ],
+  "author": "dharmendra kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DkReactNative/tip-manager/issues"
+  },
+  "homepage": "https://github.com/DkReactNative/tip-manager#readme"
+}
